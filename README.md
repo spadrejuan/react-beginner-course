@@ -15,5 +15,18 @@ npm create vite@latest
 npm install
 npm run dev
 ```
+4. For Tailwind with Vite, run this command to install the Tailwind packages
+```
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+5. After running the commands, a tailwind.config.js file should be present. Copy paste these values on the content block
+```
+"./index.html",
+"./src/**/*.{js,ts,jsx,tsx}",
+```
+These make sure that Tailwind runs on js, ts, jsx, and tsx files
+
+
 
 

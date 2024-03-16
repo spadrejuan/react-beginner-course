@@ -26,7 +26,13 @@ npx tailwindcss init -p
 "./src/**/*.{js,ts,jsx,tsx}",
 ```
 These make sure that Tailwind runs on js, ts, jsx, and tsx files
-
+6. In the index.css file, copy paste these values to wire your Tailwind utility classes
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+7. Make sure to install Tailwind CSS Intellisense and ES Lint, and configure File Association and Editor Quick Suggestion
 
 
 

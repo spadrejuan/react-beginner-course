@@ -1,11 +1,21 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { dummyData } from "./data/todos"
 import AddTodoForm from "./components/AddTodoForm";
 import TodoList from "./components/TodoList";
 import TodoSummary from "./components/TodoSummary";
+import { Todo } from "./types/todo";
 
 function App() {
-  const [todos, setTodos] = useState(dummyData)
+  const [todos, setTodos] = useState(() => {
+    const savedTodos: Todo[] = JSON.parse(localStorage.getItem("todos") || "[]");
+    return savedTodos.length > 0 ? savedTodos : dummyData 
+  })
+
+  // Use Effects
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos)) // turns into a string and save to local storage. LocalStorage only stores strings
+  }, [todos]) // This function will be called whenever todos has changed its state
+
 
   function setTodoCompleted(id: number, completed: boolean) {
     setTodos((prevTodos) => 

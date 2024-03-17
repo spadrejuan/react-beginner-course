@@ -34,5 +34,15 @@ These make sure that Tailwind runs on js, ts, jsx, and tsx files
 ```
 7. Make sure to install Tailwind CSS Intellisense and ES Lint, and configure File Association and Editor Quick Suggestion
 
+### How to Run:
+1. Navigate to the react-todo-app folder 
+```
+cd react-todo-app
+```
+2. Run these commands to run it in localhost:5173
+```
+npm install
+npm run dev
+```
 
 

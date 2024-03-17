@@ -1,10 +1,16 @@
-import TodoItem from "./components/TodoListItem"
+import { useState } from "react"
 import { dummyData } from "./data/todos"
+import TodoListItem from "./components/TodoListItem"
 
 function App() {
+  const [todos, setTodos] = useState(dummyData)
 
   function setTodoCompleted(id: number, completed: boolean) {
-    alert(`Todo with id ${id} is now ${completed ? "completed" : "not completed"}`)
+    setTodos((prevTodos) => 
+    prevTodos.map(todo => ( // returns a completely new array
+      todo.id === id ? {...todo, completed} : todo // spread out old todo using ... operator. Replace with new completed value
+    ))
+    );
   }
 
   return (
@@ -15,8 +21,8 @@ function App() {
       <div className="max-w-lg mx-auto bg-slate-100 rounded-md p-5">
         <div className="space-y-2">
           {
-            dummyData.map((todo) => (
-              <TodoItem key={todo.id} todo={todo} onCompletedChange={setTodoCompleted}/>
+            todos.map((todo) => (
+              <TodoListItem key={todo.id} todo={todo} onCompletedChange={setTodoCompleted}/>
             ))
           }
         </div>
